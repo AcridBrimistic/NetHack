@@ -34,6 +34,7 @@ MONSTER: ('G', "gnome"), random
 MONSTER: ('G', "gnome lord"), random
 MONSTER: ('h', "dwarf"), random
 MONSTER: ('h', "dwarf"), random
+MONSTER: ('G', "gnomish mage"), random
 MONSTER: 'G', random
 MONSTER: 'G', random
 MONSTER: 'h', random
@@ -951,6 +952,8 @@ MONSTER:('h',"hobbit"),random
 MONSTER:('h',"dwarf"),random
 MONSTER:('h',"dwarf"),random
 MONSTER:('h',"dwarf"),random
+MONSTER:('G',"gnomish archmage"),random
+MONSTER:('G',"gnomish archmage"),random
 MONSTER:'h',random
 
 
@@ -1098,6 +1101,8 @@ MONSTER:('h',"hobbit"),random
 MONSTER:('h',"dwarf"),random
 MONSTER:('h',"dwarf"),random
 MONSTER:('h',"dwarf"),random
+MONSTER:('G',"gnomish archmage"),random 
+MONSTER:('G',"gnomish archmage"),random
 MONSTER:'h',random
 
 
@@ -1202,6 +1207,7 @@ MONSTER:'e',random
 MONSTER:'e',random
 MONSTER:'e',random
 MONSTER:'e',random
-
+MONSTER:('G',"gnomish archmage"),random  
+MONSTER:('G',"gnomish archmage"),random  
 
 # end mines.des

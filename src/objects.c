@@ -170,6 +170,8 @@ WEAPON("knife", None,
        1, 1, 0, 20,   5,   4,  3,  2, 0, P|S, P_KNIFE, IRON, HI_METAL),
 WEAPON("stiletto", None,
        1, 1, 0,  5,   5,   4,  3,  2, 0, P|S, P_KNIFE, IRON, HI_METAL),
+WEAPON("stabber", "sharpened dagger",
+       0, 1, 0, 0,   8,   25, 8,  6, 2, P,   P_DAGGER, SILVER, HI_SILVER),
 /* 3.6: worm teeth and crysknives now stack;
    when a stack of teeth is enchanted at once, they fuse into one crysknife;
    when a stack of crysknives drops, the whole stack reverts to teeth */
@@ -179,8 +181,10 @@ WEAPON("crysknife", None,
        1, 1, 0,  0,  20, 100, 10, 10, 3, P,   P_KNIFE, MINERAL, CLR_WHITE),
 
 /* axes */
+WEAPON("hand axe", None,
+       1, 0, 0, 10,  40,   5,  5,  7, 1, S,   P_AXE, IRON, HI_METAL),
 WEAPON("axe", None,
-       1, 0, 0, 40,  60,   8,  6,  4, 0, S,   P_AXE, IRON, HI_METAL),
+       1, 0, 0, 30,  60,   8,  6,  4, 0, S,   P_AXE, IRON, HI_METAL),
 WEAPON("battle-axe", "double-headed axe",       /* "double-bitted"? */
        0, 0, 1, 10, 120,  40,  8,  6, 0, S,   P_AXE, IRON, HI_METAL),
 

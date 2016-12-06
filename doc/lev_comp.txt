@@ -94,7 +94,7 @@ LEV_COMP(6)                   1996                    LEV_COMP(6)
 
      init_rreg       : RANDOM_OBJECTS_ID ':' object_list
                      | RANDOM_MONSTERS_ID ':' monster_list
-                     ;
+                     ;	
 
      rooms           : /* Nothing  -  dummy room for use with INIT_MAP */
                      | roomlist

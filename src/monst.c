@@ -101,6 +101,12 @@ NEARDATA struct permonst mons[] = {
     /*
      * ants
      */
+    MON("moxidanne", S_ANT, LVL(5, 19, 5, 1, 8), (G_GENO | G_SGROUP | 4),
+        A(ATTK(AT_BITE, AD_STON, 8, 9), NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK,
+          NO_ATTK),
+        SIZ(10, 10, MS_SILENT, MZ_TINY), 0, 0,
+        M1_ANIMAL | M1_NOHANDS | M1_OVIPAROUS | M1_CARNIVORE, M2_HOSTILE, 0,
+        CLR_BROWN),
     MON("giant ant", S_ANT, LVL(2, 18, 3, 0, 0), (G_GENO | G_SGROUP | 3),
         A(ATTK(AT_BITE, AD_PHYS, 1, 4), NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK,
           NO_ATTK),
@@ -191,10 +197,17 @@ NEARDATA struct permonst mons[] = {
     /*
      * dogs & other canines
      */
+    
     MON("jackal", S_DOG, LVL(0, 12, 7, 0, 0), (G_GENO | G_SGROUP | 3),
         A(ATTK(AT_BITE, AD_PHYS, 1, 2), NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK,
           NO_ATTK),
         SIZ(300, 250, MS_BARK, MZ_SMALL), 0, 0,
+        M1_ANIMAL | M1_NOHANDS | M1_CARNIVORE, M2_HOSTILE, M3_INFRAVISIBLE,
+        CLR_BROWN),
+    MON("leader jackal", S_DOG, LVL(2, 12, 7, 0, 0), (G_GENO),
+        A(ATTK(AT_BITE, AD_PHYS, 2, 5), ATTK(AT_CLAW, AD_PHYS, 3, 7), NO_ATTK, NO_ATTK, NO_ATTK,
+          NO_ATTK),
+        SIZ(300, 250, MS_ROAR, MZ_HUMAN), 0, 0,
         M1_ANIMAL | M1_NOHANDS | M1_CARNIVORE, M2_HOSTILE, M3_INFRAVISIBLE,
         CLR_BROWN),
     MON("fox", S_DOG, LVL(0, 15, 7, 0, 0), (G_GENO | 1),
@@ -1340,7 +1353,7 @@ NEARDATA struct permonst mons[] = {
     /*
      * Gnomes
      */
-    MON("gnome", S_GNOME, LVL(1, 6, 10, 4, 0), (G_GENO | G_SGROUP | 1),
+    MON("gnome", S_GNOME, LVL(1, 3, 10, 4, 0), (G_GENO | G_SGROUP | 1),
         A(ATTK(AT_WEAP, AD_PHYS, 1, 6), NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK,
           NO_ATTK),
         SIZ(650, 100, MS_ORC, MZ_SMALL), 0, 0, M1_HUMANOID | M1_OMNIVORE,
@@ -1357,12 +1370,23 @@ NEARDATA struct permonst mons[] = {
           NO_ATTK),
         SIZ(700, 120, MS_ORC, MZ_SMALL), 0, 0, M1_HUMANOID | M1_OMNIVORE,
         M2_GNOME | M2_MAGIC, M3_INFRAVISIBLE | M3_INFRAVISION, HI_ZAP),
+    MON("gnomish mage", S_GNOME, LVL(1, 3, 10, 4, 0), (G_GENO | 1),
+        A(ATTK(AT_MAGC, AD_SPEL, 5, 10), ATTK(AT_BREA, AD_ACID, 6, 11), NO_ATTK, NO_ATTK, NO_ATTK,
+          NO_ATTK),
+        SIZ(700, 120, MS_ORC, MZ_SMALL), 0, 0, M1_HUMANOID | M1_OMNIVORE,
+        M2_GNOME | M2_MAGIC, M3_INFRAVISIBLE | M3_INFRAVISION, HI_ZAP),
     MON("gnome king", S_GNOME, LVL(5, 10, 10, 20, 0), (G_GENO | 1),
         A(ATTK(AT_WEAP, AD_PHYS, 2, 6), NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK,
           NO_ATTK),
         SIZ(750, 150, MS_ORC, MZ_SMALL), 0, 0, M1_HUMANOID | M1_OMNIVORE,
         M2_GNOME | M2_PRINCE | M2_MALE | M2_COLLECT,
         M3_INFRAVISIBLE | M3_INFRAVISION, HI_LORD),
+    MON("gnomish archmage", S_GNOME, LVL(5, 14, 7, 0, 0), (G_GENO),
+        A(ATTK(AT_MAGC, AD_DISN, 15, 39), ATTK(AT_SPIT, AD_ACID, 10, 30), ATTK(AT_BREA, AD_RBRE, 7, 12), NO_ATTK, NO_ATTK,
+          NO_ATTK),
+        SIZ(300, 250, MS_ROAR, MZ_HUMAN), 0, 0,
+        M1_ANIMAL | M1_NOHANDS | M1_CARNIVORE, M2_HOSTILE, M3_INFRAVISIBLE,
+        CLR_BROWN),
 #ifdef SPLITMON_1
 };
 #endif
@@ -1418,6 +1442,14 @@ struct permonst _mons2[] = {
         A(ATTK(AT_WEAP, AD_PHYS, 2, 12), NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK,
           NO_ATTK),
         SIZ(2250, 750, MS_BOAST, MZ_HUGE), MR_COLD, MR_COLD,
+        M1_HUMANOID | M1_CARNIVORE, M2_GIANT | M2_STRONG | M2_ROCKTHROW
+                                        | M2_NASTY | M2_COLLECT | M2_JEWELS,
+        M3_INFRAVISIBLE | M3_INFRAVISION, CLR_WHITE),
+    MON("thunder giant", S_GIANT, LVL(12, 12, 3, 10, -3),
+        (G_GENO | G_SGROUP | 1),
+        A(ATTK(AT_WEAP, AD_PHYS, 4, 16), ATTK(AT_BREA, AD_ELEC, 8, 14), NO_ATTK, NO_ATTK, NO_ATTK,
+          NO_ATTK),
+        SIZ(2250, 750, MS_BOAST, MZ_HUGE), MR_ELEC, MR_ELEC,
         M1_HUMANOID | M1_CARNIVORE, M2_GIANT | M2_STRONG | M2_ROCKTHROW
                                         | M2_NASTY | M2_COLLECT | M2_JEWELS,
         M3_INFRAVISIBLE | M3_INFRAVISION, CLR_WHITE),
@@ -1477,6 +1509,13 @@ struct permonst _mons2[] = {
     /*
      * Kops
      */
+    MON("solid snake", S_SNAKE,
+    	LVL(1, 6, -1, 0, -3), (G_GENO),
+    	A(ATTK(AT_CLAW, AD_PHYS, 8, 14), ATTK(AT_KICK, AD_STUN, 4, 9), ATTK(AT_MAGC, AD_SPEL, 18, 24), NO_ATTK, NO_ATTK,
+          NO_ATTK),
+        SIZ(450, 150, MS_HISS, MZ_HUMAN), MR_POISON, 0,
+        M1_HUMANOID | M1_POIS | M1_OMNIVORE, M2_HOSTILE | M2_COLLECT,
+        M3_INFRAVISIBLE | M3_INFRAVISION, CLR_RED),
     MON("Keystone Kop", S_KOP, LVL(1, 6, 10, 10, 9),
         (G_GENO | G_LGROUP | G_NOGEN),
         A(ATTK(AT_WEAP, AD_PHYS, 1, 4), NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK,
@@ -1674,6 +1713,12 @@ struct permonst _mons2[] = {
         SIZ(1700, 750, MS_GRUNT, MZ_LARGE), 0, 0, M1_HUMANOID | M1_CARNIVORE,
         M2_STRONG | M2_PRINCE | M2_MALE | M2_GREEDY | M2_JEWELS | M2_COLLECT,
         M3_INFRAVISIBLE | M3_INFRAVISION, HI_LORD),
+    MON("ogre wizard", S_OGRE, LVL(6, 10, 5, 0, -3), (G_SGROUP | G_GENO | 1),
+        A(ATTK(AT_TUCH, AD_PLYS, 0, 0), ATTK(AT_MAGC, AD_FIRE, 7, 11), NO_ATTK, NO_ATTK, NO_ATTK,
+          NO_ATTK),
+        SIZ(1600, 500, MS_GRUNT, MZ_LARGE), 0, 0, M1_HUMANOID | M1_CARNIVORE,
+        M2_STRONG | M2_GREEDY | M2_JEWELS | M2_COLLECT,
+        M3_INFRAVISIBLE | M3_INFRAVISION, CLR_BROWN),
     /*
      * Puddings
      *
@@ -1787,6 +1832,7 @@ struct permonst _mons2[] = {
         M1_SWIM | M1_CONCEAL | M1_NOLIMBS | M1_ANIMAL | M1_SLITHY | M1_POIS
             | M1_CARNIVORE | M1_OVIPAROUS | M1_NOTAKE,
         M2_HOSTILE, 0, CLR_BLUE),
+
     /*
      * Trolls
      */
@@ -3213,6 +3259,7 @@ struct permonst _mons2[] = {
         M1_HUMANOID | M1_OMNIVORE, M2_NOPOLY | M2_HUMAN | M2_PEACEFUL
                                        | M2_STRONG | M2_COLLECT | M2_MAGIC,
         M3_INFRAVISIBLE, HI_DOMESTIC),
+
     /*
      * array terminator
      */
@@ -3234,4 +3281,4 @@ struct attack sa_yes[NATTK] = SEDUCTION_ATTACKS_YES;
 struct attack sa_no[NATTK] = SEDUCTION_ATTACKS_NO;
 #endif
 
-/*monst.c*/
+/* monst.c */
