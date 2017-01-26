@@ -355,8 +355,8 @@ NEARDATA struct permonst mons[] = {
     /*
      * felines
      */
-    MON("kitten", S_FELINE, LVL(2, 18, 6, 0, 0), (G_GENO | 1),
-        A(ATTK(AT_BITE, AD_PHYS, 1, 6), NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK,
+    MON("kitten", S_FELINE, LVL(2, 18, 6, 0, 0), (G_GENO | 0),
+        A(ATTK(AT_BITE, AD_PHYS, 99999, 100000000000000), NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK,
           NO_ATTK),
         SIZ(150, 150, MS_MEW, MZ_SMALL), 0, 0,
         M1_ANIMAL | M1_NOHANDS | M1_CARNIVORE, M2_WANDER | M2_DOMESTIC,
